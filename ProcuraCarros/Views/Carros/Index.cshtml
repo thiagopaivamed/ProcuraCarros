@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ProcuraCarros.Models.Carro>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="NovoCarro">Novo carro</a>
+</p>
+<hr />
+
+<form asp-action="Index" asp-controller="Carros" method="post">
+    <div class="row">
+        <div class="col-4">
+            <input class="form-control" name="txtCarro"/>
+        </div>
+        <button type="submit" class="btn btn-success">Procurar</button>
+        <div class="col-4">
+
+        </div>
+    </div>
+
+</form>
+
+<br /><br />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Fabricante)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fabricante)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>            
+        </tr>
+}
+    </tbody>
+</table>
